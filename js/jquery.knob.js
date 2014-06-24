@@ -119,6 +119,7 @@
                     inline : false,
                     step : this.$.data('step') || 1,
                     rotation: this.$.data('rotation'),
+                    scroll: this.$.data('scroll'),
 
                     // Hooks
                     draw : null, // function () {}
@@ -660,8 +661,10 @@
                     }
                 );
 
-            this.$c.bind("mousewheel DOMMouseScroll", mw);
-            this.$.bind("mousewheel DOMMouseScroll", mw)
+            if (s.o.scroll) {
+                this.$c.bind("mousewheel DOMMouseScroll", mw);
+                this.$.bind("mousewheel DOMMouseScroll", mw);
+            }
         };
 
         this.init = function () {
